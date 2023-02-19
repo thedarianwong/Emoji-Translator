@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import styles from '../styles/FrontPage.module.scss';
 import { Button, Heading, VStack, HStack, Spacer } from '@chakra-ui/react';
 
-function FrontPage() {
+const server_url = process.env.REACT_APP_SERVER_URL;
+
+const FrontPage = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
 
   const handleTranslateClick = async () => {
-    const response = await fetch('http://127.0.0.1:5000/translate')
+    const response = await fetch(`${server_url}/translate`)
       .then(res => res.json())
       .then(data => data)
       .catch(err => {
+        console.log(server_url);
         console.log(err.message);
       });
     // Replace this with your translation logic
@@ -53,6 +56,6 @@ function FrontPage() {
       </HStack>
     </div>
   );
-}
+};
 
 export default FrontPage;
