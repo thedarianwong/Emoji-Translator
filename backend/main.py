@@ -55,17 +55,17 @@ def index():
     else:
         return render_template('index.html')
 
-@app.route('/')
-def test2():
-    if request.method.text is "GET":
-        return "shiet"
-    return request.method
-    # return "bbb"
+# @app.route('/')
+# def test2():
+#     if request.method.text is "GET":
+#         return "shiet"
+#     return request.method
+#     # return "bbb"
 
 
 @app.route('/translate', methods=['POST', 'GET'])
 def test():
-    return jsonify({"message": "🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹"})
+    return jsonify({"message": "💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘"})
 
 
 if __name__ == "__main__":

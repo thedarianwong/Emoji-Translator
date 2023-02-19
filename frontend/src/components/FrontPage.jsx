@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../styles/FrontPage.module.scss';
-import { Button, Heading, VStack, HStack, Spacer } from '@chakra-ui/react';
+import { Button, Heading, VStack, HStack, Spacer, Input, Textarea } from '@chakra-ui/react';
 
 const server_url = process.env.REACT_APP_SERVER_URL;
 
@@ -22,12 +22,14 @@ const FrontPage = () => {
 
   return (
     <div className={styles.frontPage}>
-      <VStack>
+      <VStack maxW = "70%"
+          minW = "70%"
+          minH = "100px">
         <Heading fontSize="3.5em" fontFamily="'Noto+Sans+Bamum', sans-serif">
           Emoji Translator
         </Heading>
         <Spacer />
-        <input
+        <Input
           className={styles.inputBox}
           type="text"
           name="input"
@@ -37,7 +39,7 @@ const FrontPage = () => {
             setInputText(event.target.value);
           }}
         />
-        <div className={styles.output}>{outputText}</div>
+        <Textarea className={styles.output}>{outputText}</Textarea>
       </VStack>
       <HStack spacing="25px" className={styles.buttonContainer}>
         <Button

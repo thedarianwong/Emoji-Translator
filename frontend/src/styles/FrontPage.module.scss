@@ -7,7 +7,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
 
     .h1 {
         font-size: 3em;
@@ -16,8 +15,16 @@
         align-items: center;
         justify-content: center;
     }
+
+    .boxContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vh;
+    }
     
-    .inputBox {
+    .inputBox { 
         font-size: 3em;
         display: flex;
         flex-direction: column;
@@ -34,8 +41,8 @@
         border-radius: 8px;
         border: 2px solid #ccc;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-        max-width: 400px;
-        height: 100px;
+        max-width: 70%;
+        height: 150px;
         margin: 10px;
         width: 100%;
     }
@@ -82,8 +89,8 @@
         border-radius: 8px;
         border: 2px solid #ccc;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-        max-width: 400px;
-        height: 100px;
+        max-width: 70%;
+        height: 150px;
         margin: 10px;
         width: 100%;
     }
