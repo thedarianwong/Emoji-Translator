@@ -10,6 +10,7 @@ import {
   Text,
   Box,
 } from '@chakra-ui/react';
+import handleTranslateClickHelper from '../helpAPI/translate';
 
 const server_url = process.env.REACT_APP_SERVER_URL;
 
@@ -19,15 +20,8 @@ const FrontPage = () => {
   const [isOutputCopied, setIsOutputCopied] = useState(false);
 
   const handleTranslateClick = async () => {
-    const response = await fetch(`${server_url}/translate`)
-      .then(res => res.json())
-      .then(data => data)
-      .catch(err => {
-        console.log(server_url);
-        console.log(err.message);
-      });
-    // Replace this with your translation logic
-    setOutputText(response.message);
+    const res = handleTranslateClickHelper(inputText);
+    // setOutputText(response.message);
     setIsOutputCopied(false);
   };
 
@@ -71,10 +65,10 @@ const FrontPage = () => {
           />
           <Text
             position="absolute"
-            top={0}
+            top={1.5}
             right={0}
-            mr={2}
-            mt={2}
+            mr={3}
+            mt={3}
             fontWeight="bold"
             fontSize="sm"
             color="gray.500"
