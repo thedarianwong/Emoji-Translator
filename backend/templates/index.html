@@ -20,7 +20,7 @@
 
         <h1>Emoji Translator</h1>
 
-        <form method='POST'>
+        <form id="mainForm" method='POST'>
 
             <label for="options">Conversion:</label>
             <select name="cars" id="cars">
@@ -28,15 +28,31 @@
                 <option value="translate">Translate Emojis</option>
             </select><br><br>
 
-            <input type="text" name="user_input" placeholder="Input Box"><br><br>
+            <input type="text" name="user_input" placeholder="Input Box" formmethod="post"><br><br>
             <div id="output" readonly>{{test_arr}}</div><br>
 
-            <input type="submit" name="submit" value="Clear">
-            <input type="submit" name="submit" value="Transalte">
 
+            <input type="submit" name="submit" value="Translate" formmethod="post">
+            <button id="clear-button" type="button">Clear</button>
             <br><br>
-
         </form>
+        
 
+        <script>
+            // Get a reference to the "Clear" button
+            const clearButton = document.getElementById('clear-button');
+
+            // Add a click event listener to the "Clear" button
+            clearButton.addEventListener('click', function() {
+            // Clear the input field
+            const inputField = document.querySelector('input[name="user_input"]');
+            inputField.value = '';
+
+            // Clear the output container
+            const outputContainer = document.getElementById('output');
+            outputContainer.textContent = '';
+            });
+        </script>
+        
     </body>
 </html>
