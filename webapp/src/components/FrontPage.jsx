@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from '../styles/FrontPage.module.scss';
+import { Button } from '@chakra-ui/react'
 
 function FrontPage() {
     const [inputText, setInputText] = useState("");
@@ -35,6 +36,8 @@ function FrontPage() {
             <button className={styles.translateButton} onClick={handleTranslateClick}>
                 Translate
             </button>
+
+            <Button colorScheme='blue'>Button</Button>
         </div>
     </div>
     );
