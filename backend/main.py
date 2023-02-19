@@ -2,12 +2,14 @@ from revChatGPT.V1 import Chatbot
 from flask import *
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 
 load_dotenv()
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 
 app = Flask(__name__)
+CORS(app)
 
 # Access to ChatGPT
 chatbot = Chatbot(config={
@@ -53,15 +55,17 @@ def index():
     else:
         return render_template('index.html')
 
+@app.route('/')
+def test2():
+    if request.method.text is "GET":
+        return "shiet"
+    return request.method
+    # return "bbb"
+
 
 @app.route('/translate', methods=['POST', 'GET'])
 def test():
-    return '''👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴
-            👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴
-            👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴
-            👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴
-            👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴
-            👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴👴'''
+    return jsonify({"message": "🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹"})
 
 
 if __name__ == "__main__":
