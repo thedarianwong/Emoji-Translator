@@ -78,7 +78,7 @@ const FrontPage = () => {
             fontWeight="bold"
             fontSize="sm"
             color="gray.500"
-            _hover={{ cursor: 'pointer', transform: 'rotate(-5deg)' }}
+            _hover={{ cursor: 'pointer' }}
             onClick={handleCopyClick}
           >
             {isOutputCopied ? 'Copied' : 'Copy'}
@@ -91,6 +91,7 @@ const FrontPage = () => {
           onClick={() => {
             setInputText('');
             setOutputText('');
+            setIsOutputCopied(false);
           }}
         >
           Clear
