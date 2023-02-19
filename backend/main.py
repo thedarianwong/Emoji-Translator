@@ -60,7 +60,3 @@ def translate():
         return jsonify({'message': response})
     else:
         return jsonify({'message': 'Bad Request: Invalid JSON payload'}), 400
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
