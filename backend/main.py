@@ -28,45 +28,21 @@ for data in chatbot.ask(
 
 conversation_id = chatbot.get_conversations()[0]["id"]
 
+@app.route('/translate', methods=['POST'])
+def translate():
+    user_input = request.json['user_input']
 
-@app.route('/', methods=['POST', 'GET'])
-def index():
-    if request.method == 'POST':
-        if request.form['submit'] == 'Transalte':
+    # Declare array to store all values from chatGPT
+    test_arr = ""
 
-            # Get a user input to ask chatGPT
-            user_input = request.form['user_input']
+    # Access to ChatGPT and Get a response from
+    prev_text = ""
+    for data in chatbot.ask(user_input, conversation_id):
+        message = data["message"][len(prev_text):]
+        test_arr += message
+        prev_text = data["message"]
 
-            # Declare array to store all values from chatGPT
-            test_arr = ""
-
-            # Access to ChatGPT and Get a response from
-            prev_text = ""
-            for data in chatbot.ask(
-                user_input, conversation_id
-            ):
-                message = data["message"][len(prev_text):]
-                test_arr += message
-                print(message, end="", flush=True)
-                prev_text = data["message"]
-
-            return render_template('index.html', test_arr=test_arr)
-
-    else:
-        return render_template('index.html')
-
-# @app.route('/')
-# def test2():
-#     if request.method.text is "GET":
-#         return "shiet"
-#     return request.method
-#     # return "bbb"
-
-
-@app.route('/translate', methods=['POST', 'GET'])
-def test():
-    return jsonify({"message": "💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘💕😁👌😍😘"})
-
+    return jsonify({'message':"ERROR TJUST AKSD TEST!"})
 
 if __name__ == "__main__":
     app.run(debug=True)

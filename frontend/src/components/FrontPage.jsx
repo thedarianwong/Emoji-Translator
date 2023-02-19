@@ -1,30 +1,28 @@
 import React, { useState } from 'react';
 import styles from '../styles/FrontPage.module.scss';
-import { Button, Heading, VStack, HStack, Spacer, Input, Textarea } from '@chakra-ui/react';
-
-const server_url = process.env.REACT_APP_SERVER_URL;
+import {
+  Button,
+  Heading,
+  VStack,
+  HStack,
+  Spacer,
+  Input,
+  Textarea,
+} from '@chakra-ui/react';
+import handleTranslateClickHelper from '../helpAPI/translate';
 
 const FrontPage = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
 
   const handleTranslateClick = async () => {
-    const response = await fetch(`${server_url}/translate`)
-      .then(res => res.json())
-      .then(data => data)
-      .catch(err => {
-        console.log(server_url);
-        console.log(err.message);
-      });
-    // Replace this with your translation logic
-    setOutputText(response.message);
+    const translation = await handleTranslateClickHelper(inputText);
+    setOutputText(translation);
   };
 
   return (
     <div className={styles.frontPage}>
-      <VStack maxW = "70%"
-          minW = "70%"
-          minH = "100px">
+      <VStack maxW="70%" minW="70%" minH="100px">
         <Heading fontSize="3.5em" fontFamily="'Noto+Sans+Bamum', sans-serif">
           Emoji Translator
         </Heading>
@@ -39,7 +37,13 @@ const FrontPage = () => {
             setInputText(event.target.value);
           }}
         />
-        <Textarea className={styles.output}>{outputText}</Textarea>
+        <Textarea
+          className={styles.output}
+          value={outputText}
+          onChange={event => {
+            setOutputText(event.target.value);
+          }}
+        />
       </VStack>
       <HStack spacing="25px" className={styles.buttonContainer}>
         <Button
