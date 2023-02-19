@@ -1,90 +1,96 @@
 @import 'global.scss';
 
 .frontPage {
-    width: 100%;
-    height: 90vh;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .h1 {
+    font-size: 3em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+  }
 
-    .h1 {
-        font-size: 3em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .inputBox {
-        font-size: 3em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    
-        [type="text"] {
-            display: block;
-            margin: 0 auto;
-        }
+  .boxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vh;
+  }
 
-        font-size: 24px;
-        padding: 16px;
-        border-radius: 8px;
-        border: 2px solid #ccc;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-        max-width: 400px;
-        height: 100px;
-        margin: 10px;
-        width: 100%;
+  .inputBox {
+    font-size: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    [type='text'] {
+      display: block;
+      margin: 0 auto;
     }
 
-    .buttonContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 0.8rem;
-        .clearButton {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            margin: 10px;
-            border-radius: 5px;
-            color: white;
-            border: none;
-            font-size: 1.3rem;
-            background-color: #d92626;
-        }
-        .clearButton:hover{
-            transform: scale(1.05);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        }
+    font-size: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    max-width: 70%;
+    height: 250px;
+    margin: 10px;
+    width: 100%;
+  }
 
-        .translateButton {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            margin: 10px;
-            border-radius: 5px;
-            color: white;
-            border: none;
-            font-size: 1.3rem;
-            background-color: #4caf50;
-        }
-        .translateButton:hover{
-            transform: scale(1.05);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        }
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+    .clearButton {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 10px;
+      border-radius: 5px;
+      color: white;
+      border: none;
+      font-size: 1.3rem;
+      background-color: #d92626;
     }
-    
-    .output {
-        font-size: 24px;
-        padding: 16px;
-        border-radius: 8px;
-        border: 2px solid #ccc;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-        max-width: 400px;
-        height: 100px;
-        margin: 10px;
-        width: 100%;
+    .clearButton:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     }
+
+    .translateButton {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 10px;
+      border-radius: 5px;
+      color: white;
+      border: none;
+      font-size: 1.3rem;
+      background-color: #4caf50;
+    }
+    .translateButton:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .output {
+    font-size: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    max-width: 70%;
+    height: 150px;
+    margin: 10px;
+    width: 100%;
+  }
 }

@@ -32,38 +32,34 @@ conversation_id = chatbot.get_conversations()[0]["id"]
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        #if request.form['submit'] == "Translate":
         if request.form['submit']:
+
             # Get a user input to ask chatGPT
             user_input = request.form['user_input']
 
-            # Declare array to store all values from chatGPT
-            test_arr = ""
+    # Declare array to store all values from chatGPT
+    test_arr = ""
 
-            # Access to ChatGPT and Get a response from
-            prev_text = ""
-            for data in chatbot.ask(
-                user_input, conversation_id
-            ):
-                message = data["message"][len(prev_text):]
-                test_arr += message
-                print(message, end="", flush=True)
-                prev_text = data["message"]
+    # Access to ChatGPT and Get a response from
+    prev_text = ""
+    for data in chatbot.ask(user_input, conversation_id):
+        message = data["message"][len(prev_text):]
+        test_arr += message
+        prev_text = data["message"]
 
-            return render_template('index.html', test_arr=test_arr)
+        return render_template('index.html', test_arr=test_arr)
 
     else:
         return render_template('index.html')
-    return render_template("index.html")
-    
-'''
+    return render_template('index.html')
+
 @app.route('/')
 def test2():
     if request.method.text is "GET":
         return "shiet"
     return request.method
     # return "bbb"
-'''
+
 
 @app.route('/translate', methods=['POST', 'GET'])
 def test():
