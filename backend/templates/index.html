@@ -22,12 +22,19 @@
 
         <form method='POST'>
 
+            <label for="options">Conversion:</label>
+            <select name="cars" id="cars">
+                <option value="insert">Insert Emojis</option>
+                <option value="translate">Translate Emojis</option>
+            </select><br><br>
+
             <input type="text" name="user_input" placeholder="Input Box"><br><br>
             <div id="output" readonly>{{test_arr}}</div><br>
 
-
             <input type="submit" name="submit" value="Clear">
             <input type="submit" name="submit" value="Transalte">
+
+            <br><br>
 
         </form>
 
