@@ -18,10 +18,15 @@ const FrontPage = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [isOutputCopied, setIsOutputCopied] = useState(false);
+  const [translationMethod, setTranslationMethod] =
+    useState('english_to_emoji');
 
   const handleTranslateClick = async () => {
-    const res = handleTranslateClickHelper(inputText);
-    // setOutputText(response.message);
+    const result = await handleTranslateClickHelper(
+      inputText,
+      translationMethod
+    );
+    setOutputText(result);
     setIsOutputCopied(false);
   };
 
