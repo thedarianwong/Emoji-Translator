@@ -12,8 +12,6 @@ import {
 } from '@chakra-ui/react';
 import handleTranslateClickHelper from '../helpAPI/translate';
 
-const server_url = process.env.REACT_APP_SERVER_URL;
-
 const FrontPage = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
