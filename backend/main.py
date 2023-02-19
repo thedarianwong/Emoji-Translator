@@ -28,9 +28,14 @@ for data in chatbot.ask(
 
 conversation_id = chatbot.get_conversations()[0]["id"]
 
-@app.route('/translate', methods=['POST'])
-def translate():
-    user_input = request.json['user_input']
+
+@app.route('/', methods=['POST', 'GET'])
+def index():
+    if request.method == 'POST':
+        if request.form['submit']:
+
+            # Get a user input to ask chatGPT
+            user_input = request.form['user_input']
 
     # Declare array to store all values from chatGPT
     test_arr = ""
@@ -42,7 +47,24 @@ def translate():
         test_arr += message
         prev_text = data["message"]
 
-    return jsonify({'message':"ERROR TJUST AKSD TEST!"})
+        return render_template('index.html', test_arr=test_arr)
+
+    else:
+        return render_template('index.html')
+    return render_template('index.html')
+
+@app.route('/')
+def test2():
+    if request.method.text is "GET":
+        return "shiet"
+    return request.method
+    # return "bbb"
+
+
+@app.route('/translate', methods=['POST', 'GET'])
+def test():
+    return jsonify({"message": "🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹🥹"})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
