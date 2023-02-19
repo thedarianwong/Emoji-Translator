@@ -37,7 +37,7 @@ const FrontPage = () => {
     <div className={styles.frontPage}>
       <VStack maxW="70%" minW="70%" minH="100px">
         <Heading fontSize="3.5em" fontFamily="'Noto+Sans+Bamum', sans-serif">
-          Emoji Translator
+          Emoji Dictionary
         </Heading>
         <Spacer />
         <Textarea
@@ -51,40 +51,37 @@ const FrontPage = () => {
           }}
           minH="110px"
         />
-        <Box position="relative">
-          <Textarea
-            className={styles.output}
-            placeholder="output area"
-            value={outputText}
-            onChange={event => {
-              setOutputText(event.target.value);
-            }}
-            minH="177px"
-            minW="70%"
-            maxW="70%"
-            readOnly={true}
-            onClick={handleCopyClick}
-            _hover={{ cursor: 'pointer' }}
-          />
-          <Text
-            position="absolute"
-            top={1.5}
-            right={0}
-            mr={3}
-            mt={3}
-            fontWeight="bold"
-            fontSize="sm"
-            color="gray.500"
-            _hover={{ cursor: 'pointer' }}
-            onClick={handleCopyClick}
-          >
-            {isOutputCopied ? 'Copied' : 'Copy'}
-          </Text>
-        </Box>
+        <Textarea
+          className={styles.output}
+          placeholder="Output"
+          value={outputText}
+          onChange={event => {
+            setOutputText(event.target.value);
+          }}
+          minH="150px"
+          readOnly={true}
+          onClick={handleCopyClick}
+          _hover={{ cursor: 'pointer' }}
+        />
+        <Text
+          position="sticky"
+          top={1.5}
+          right={0}
+          mr={3}
+          mt={3}
+          fontWeight="bold"
+          fontSize="sm"
+          color="gray.500"
+          _hover={{ cursor: 'pointer' }}
+          onClick={handleCopyClick}
+        >
+          {isOutputCopied ? 'Copied' : 'Click to Copy'}
+        </Text>
       </VStack>
       <HStack spacing="25px" className={styles.buttonContainer}>
         <Button
           colorScheme="red"
+          minW="90px"
           onClick={() => {
             setInputText('');
             setOutputText('');
@@ -94,7 +91,7 @@ const FrontPage = () => {
           Clear
         </Button>
         <Spacer w="120px" />
-        <Button colorScheme="green" onClick={handleTranslateClick}>
+        <Button colorScheme="green" minW="50px" onClick={handleTranslateClick}>
           Translate
         </Button>
       </HStack>
