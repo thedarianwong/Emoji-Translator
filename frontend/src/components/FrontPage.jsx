@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from '../styles/FrontPage.module.scss';
+import { Button, Heading, VStack, HStack, Spacer } from "@chakra-ui/react";
 
 function FrontPage() {
     const [inputText, setInputText] = useState("");
@@ -17,7 +18,9 @@ function FrontPage() {
 
     return (
     <div className={styles.frontPage}>
-        <h1>Emoji Translator</h1>
+        <VStack>
+        <Heading fontSize ="3.5em" fontFamily = "'Noto+Sans+Bamum', sans-serif">Emoji Translator</Heading>
+        <Spacer />
         <input
             className={styles.inputBox}
             type="text"
@@ -27,15 +30,16 @@ function FrontPage() {
             onChange={(event) => {setInputText(event.target.value)}}
         />
         <div className={styles.output}>{outputText}</div>
-        <div className={styles.buttonContainer}>
-            <button className={styles.clearButton} onClick={handleClearClick}>
+        </VStack>
+        <HStack spacing = "25px" className={styles.buttonContainer}>
+            <Button colorScheme="red" onClick={handleClearClick}>
                 Clear
-            </button>
-            
-            <button className={styles.translateButton} onClick={handleTranslateClick}>
+            </Button>
+            <Spacer w="120px"/>
+            <Button colorScheme="green" onClick={handleTranslateClick}>
                 Translate
-            </button>
-        </div>
+            </Button>
+        </HStack>
     </div>
     );
 }
