@@ -8,7 +8,6 @@ import {
   Spacer,
   Textarea,
   Text,
-  Box,
 } from '@chakra-ui/react';
 import handleTranslateClickHelper from '../helpAPI/translate';
 
