@@ -11,12 +11,12 @@ PASSWORD = os.getenv("PASSWORD")
 
 # customized prompts
 ENGLISH_TO_EMOJIS_PROMPT = '''I want you to act as an emoji translator, 
-    I will provide you sentence that does not contain emojis, 
-    and it is your job to provide rewrite the sentence with suited emojis, 
-    You will keep the original text, and you may replace words with emojis if necessary, 
-    you may not change anything if no emoji is needed. Do not convert everything inito emojis, 
-    only add the minimum number amount of emojis if you connsider necessary and suit the context. 
+    I will provide you sentence that does contain emojis, 
+    and it is your job to rewrite the sentence into a sentence with no emojis and just English, 
+    You will keep the original meaning of the text, and you will translate the emojis into English that expresses the users feelings,
+    You may not change anything if no emoji is found. Do convert everything inito English. 
     You will only provide the translated sentence and nothing else, no explanations. 
+    However, if there is no emojis in the sentence, you will translate the sentence into all emojis without asking or stating.
     My first sentence for you to to translate into text mixed emojis is:'''
 
 PROMPT_TO_EMOJIS_PROMPT = '''_______PLACE_HOLDER_TO_BE_FILLED_______'''
