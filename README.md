@@ -15,7 +15,7 @@ Translatin a sentence with Emojies into a sentence in mostly to full Emojis desc
 The logic of the translation are fetched from Chat GPT OpenAi API.
 
 Architecture (Diagram of System Component):
-
+https://drive.google.com/file/d/19Csvz9YBU6nm6Ve19R__k8GUMb-Q-fKA/view?usp=sharing
 
 Technologies:
 API: https://github.com/acheong08/ChatGPT 
@@ -39,6 +39,7 @@ Conclusion:
 A very good experience for a hackathon consisting of mostly first timers and at the same time, most of us learned a new language on the day itself in order to code this project. A relatively small and fun idea, but we will definitely improve on our next hackathon.
 
 Video Link:
+https://drive.google.com/file/d/1zySjnEpoeuAtG0JLYJStwpZJBCrUZFWN/view?usp=sharing
 
 
 
